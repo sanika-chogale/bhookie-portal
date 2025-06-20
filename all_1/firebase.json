@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "site": "bhookieportal",               
+      "public": ".",                         
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App Launcher</title>
+
+    <link rel="icon" href="images\bhookie.png" type="image/png">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        #app-icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-icon-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            background-color: #fdfdfd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            color: #444;
+            transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background-color 0.25s;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .app-icon-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            background-color: #e8f0fe;
+        }
+
+        .app-icon-button img {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .app-icon-button span {
+            font-size: 0.95em;
+            font-weight: 500;
+            line-height: 1.3;
+            max-height: 3.9em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        @media (max-width: 600px) {
+            #app-icons-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 15px;
+                padding: 15px;
+                width: 95%;
+            }
+
+            .app-icon-button {
+                padding: 15px 8px;
+            }
+
+            .app-icon-button img {
+                width: 55px;
+                height: 55px;
+                margin-bottom: 10px;
+            }
+
+            .app-icon-button span {
+                font-size: 0.85em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main id="app-icons-container">
+        <a href="https://haccp-form.web.app/" target="_blank" rel="noopener noreferrer" class="app-icon-button">
+            <img src="images\haccp.png" alt="My Blog Icon">
+            <span>Haccp Form</span>
+        </a>
+
+        <a href="https://bhookie-maindatabse.web.app/" target="_blank" rel="noopener noreferrer" class="app-icon-button">
+            <img src="images\main-database.png" alt="My Portfolio Icon">
+            <span>Main Database</span>
+        </a>
+
+        <a href="https://bhookiepossystem.firebaseapp.com/" target="_blank" rel="noopener noreferrer" class="app-icon-button">
+            <img src="images\pos.png" alt="E-commerce Store Icon">
+            <span>POS-Shop1</span>
+        </a>
+
+        <a href="https://inventorymangement.firebaseapp.com/" target="_blank" rel="noopener noreferrer" class="app-icon-button">
+            <img src="images\managment_system.png" alt="E-commerce Store Icon">
+            <span>Management System</span>
+        </a>
+
+        </main>
+
+    <script>
+        // Optional: Add a simple error handler for images that don't load
+        document.querySelectorAll('.app-icon-button img').forEach(img => {
+            img.onerror = function() {
+                this.onerror = null; // Prevent infinite loop
+                this.src = 'https://via.placeholder.com/70x70?text=No+Icon'; // Generic placeholder
+                this.alt = 'Icon not available';
+            };
+        });
+    </script>
+</body>
+</html>
