@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import bhxLogo from './assets/bhx-logo.png';
 
 function App() {
   const [activeFrame, setActiveFrame] = useState(null);
+  const [iframeKey, setIframeKey] = useState(0);
   const [user] = useState({ name: 'Raj' });
   const currentDate = new Date().toLocaleString();
 
+  // Load saved frame from localStorage on initial render
+  useEffect(() => {
+    const savedFrame = localStorage.getItem('activeFrame');
+    if (savedFrame) {
+      setActiveFrame(savedFrame);
+    }
+  }, []);
+
   const openInFrame = (url) => {
     setActiveFrame(url);
-    document.title = 'BHX Portal | ' + url.replace('https://', '');
+    localStorage.setItem('activeFrame', url); // Save to localStorage
+    setIframeKey(prev => prev + 1);
+    document.title = 'BHX Portal';
   };
 
   const closeFrame = () => {
     setActiveFrame(null);
+    localStorage.removeItem('activeFrame'); // Clear from localStorage
     document.title = 'BHX Portal';
   };
 
@@ -33,24 +45,26 @@ function App() {
               alt="BHX Logo" 
               className="h-10"
             />
-            <button 
-              onClick={closeFrame}
-              className="bg-orange-600 text-black px-4 py-2 rounded font-bold hover:bg-orange-700 transition-colors"
-            >
-              ← Back to Portal
-            </button>
+            <div className="flex space-x-2">
+              <button 
+                onClick={closeFrame}
+                className="bg-orange-600 text-black px-4 py-2 rounded font-bold hover:bg-orange-700 transition-colors"
+              >
+                ← Back to Portal
+              </button>
+            </div>
           </div>
           <div className="iframe-container">
             <iframe 
               src={activeFrame} 
               title="BHX Portal Frame"
               className="portal-frame"
+              key={iframeKey}
             />
           </div>
         </div>
       ) : (
         <div className="flex flex-col min-h-screen">
-          {/* Header with Logo */}
           <header className="bg-black p-4 border-b-2 border-orange-600">
             <div className="flex justify-between items-center">
               <img 
@@ -69,7 +83,6 @@ function App() {
             </div>
           </header>
 
-          {/* Main Content */}
           <main className="flex-grow flex flex-col items-center justify-center p-4">
             <h1 className="text-2xl md:text-3xl font-bold text-orange-600 mb-8">Bhookie Portal</h1>
             
@@ -86,7 +99,6 @@ function App() {
             </div>
           </main>
 
-          {/* Footer */}
           <footer className="bg-black p-4 border-t-2 border-orange-600 text-center text-gray-400 text-sm">
             © {new Date().getFullYear()} BHX Portal. All rights reserved.
           </footer>
