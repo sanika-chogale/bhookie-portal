@@ -5,8 +5,8 @@ import bhxLogo from './assets/bhx-logo.png';
 function App() {
   const [activeFrame, setActiveFrame] = useState(null);
   const [iframeKey, setIframeKey] = useState(0);
-  const [user] = useState({ name: 'Raj' });
-  const currentDate = new Date().toLocaleString();
+  // const [user] = useState({ name: 'Raj' });
+  // const currentDate = new Date().toLocaleString();
 
   // Load saved frame from localStorage on initial render
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
   const links = [
     { name: 'POS', url: 'https://bhookiepossystem.web.app/' },
     { name: 'Database', url: 'https://bhookie-maindatabase2.web.app/' },
-    { name: 'Haccp', url: 'https://haccp-form.web.app/' }
+    { name: 'Haccp', url: 'https://haccpform.web.app/' }
   ];
 
   return (
@@ -72,25 +72,15 @@ function App() {
                 alt="BHX Logo" 
                 className="h-12"
               />
-              <div className="flex items-center space-x-4">
-                <div className="text-xl text-white">
-                  Hi {user.name}!
-                </div>
-                <div className="text-sm text-gray-400">
-                  {currentDate}
-                </div>
-              </div>
             </div>
           </header>
 
           <main className="flex-grow flex flex-col items-center justify-center p-4">
-            <h1 className="text-2xl md:text-3xl font-bold text-orange-600 mb-8">Bhookie Portal</h1>
-            
-            <div className="w-full max-w-md space-y-4">
+            <div className="flex flex-wrap justify-center gap-4 w-full max-w-3xl">
               {links.map((link, index) => (
                 <div 
                   key={index}
-                  className="bg-orange-600 text-black p-6 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl text-center"
+                  className="bg-orange-600 text-black p-3 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl text-center flex-1 min-w-[200px]"
                   onClick={() => openInFrame(link.url)}
                 >
                   <h2 className="text-xl md:text-2xl font-bold">{link.name}</h2>
