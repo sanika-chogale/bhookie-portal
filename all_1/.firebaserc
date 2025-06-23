@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "haccp-form"
-  }
+    "default": "bhookiecore"
+  },
+  "targets": {
+    "bhookiecore": {
+      "hosting": {
+        "bhookiewebportal": [
+          "bhookiewebportal"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb4458d4.css",
+    "main.js": "/static/js/main.0f563f44.js",
+    "static/js/206.3c79e921.chunk.js": "/static/js/206.3c79e921.chunk.js",
+    "static/media/bhx-logo.png": "/static/media/bhx-logo.abfe467e8ede03003c51.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.bb4458d4.css",
+    "static/js/main.0f563f44.js"
+  ]
+}
