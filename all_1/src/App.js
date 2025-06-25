@@ -83,7 +83,7 @@ function App() {
                   className="bg-orange-600 text-black p-3 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl text-center flex-1 min-w-[200px]"
                   onClick={() => openInFrame(link.url)}
                 >
-                  <h2 className="text-xl md:text-2xl font-bold">{link.name}</h2>
+                  <h2 className="text-xl md:text-xl">{link.name}</h2>
                 </div>
               ))}
             </div>
