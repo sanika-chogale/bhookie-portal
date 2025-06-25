@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.0e402bcc.css",
-    "main.js": "/static/js/main.cd6a5cf1.js",
+    "main.css": "/static/css/main.06e95149.css",
+    "main.js": "/static/js/main.65e1a62d.js",
     "static/js/206.3c79e921.chunk.js": "/static/js/206.3c79e921.chunk.js",
     "static/media/bhx-logo.png": "/static/media/bhx-logo.abfe467e8ede03003c51.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.0e402bcc.css",
-    "static/js/main.cd6a5cf1.js"
+    "static/css/main.06e95149.css",
+    "static/js/main.65e1a62d.js"
   ]
 }

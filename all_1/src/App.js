@@ -5,10 +5,7 @@ import bhxLogo from './assets/bhx-logo.png';
 function App() {
   const [activeFrame, setActiveFrame] = useState(null);
   const [iframeKey, setIframeKey] = useState(0);
-  // const [user] = useState({ name: 'Raj' });
-  // const currentDate = new Date().toLocaleString();
 
-  // Load saved frame from localStorage on initial render
   useEffect(() => {
     const savedFrame = localStorage.getItem('activeFrame');
     if (savedFrame) {
@@ -18,21 +15,22 @@ function App() {
 
   const openInFrame = (url) => {
     setActiveFrame(url);
-    localStorage.setItem('activeFrame', url); // Save to localStorage
+    localStorage.setItem('activeFrame', url);
     setIframeKey(prev => prev + 1);
     document.title = 'BHX Portal';
   };
 
   const closeFrame = () => {
     setActiveFrame(null);
-    localStorage.removeItem('activeFrame'); // Clear from localStorage
+    localStorage.removeItem('activeFrame');
     document.title = 'BHX Portal';
   };
 
   const links = [
     { name: 'POS', url: 'https://bhookiepossystem.web.app/' },
     { name: 'Database', url: 'https://bhookie-maindatabase2.web.app/' },
-    { name: 'Haccp', url: 'https://haccpform.web.app/' }
+    { name: 'Haccp', url: 'https://haccpform.web.app/' },
+    { name: 'Attendance', url: 'https://attendance-bhx.web.app/' }
   ];
 
   return (
@@ -76,11 +74,13 @@ function App() {
           </header>
 
           <main className="flex-grow flex flex-col items-center justify-center p-4">
-            <div className="flex flex-wrap justify-center gap-4 w-full max-w-3xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-4xl px-4">
               {links.map((link, index) => (
                 <div 
                   key={index}
-                  className="bg-orange-600 text-black p-3 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl text-center flex-1 min-w-[200px]"
+                  className={`bg-orange-600 text-black p-4 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl text-center ${
+                    link.name === 'Attendance' ? 'min-w-[150px]' : 'min-w-[200px]'
+                  }`}
                   onClick={() => openInFrame(link.url)}
                 >
                   <h2 className="text-xl md:text-xl">{link.name}</h2>
