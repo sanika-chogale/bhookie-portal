@@ -100,7 +100,6 @@
 
 // export default App;
 
-
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import bhxLogo from './assets/bhx-logo.png';
@@ -132,7 +131,8 @@ function App() {
   const links = [
     { name: 'POS', url: 'https://bhookiepossystem.web.app/' },
     { name: 'Database', url: 'https://bhookie-maindatabase2.web.app/' },
-    { name: 'Haccp', url: 'https://haccpform.web.app/' },
+    { name: 'Haccp-shop', url: 'https://haccpform.web.app/' },
+    { name: 'Haccp-FoodCart', url: 'https://haccpformfoodcart.web.app' },
     { name: 'Attendance', url: 'https://attendance-bhx.web.app/' }
   ];
 
@@ -140,14 +140,14 @@ function App() {
     <div className="min-h-screen flex flex-col bg-black">
       {activeFrame ? (
         <div className="flex flex-col h-screen">
-          <div className="bg-black p-4 border-b-2 border-orange-600 flex justify-between items-center">
-            <img 
-              src={bhxLogo} 
-              alt="BHX Logo" 
+          <div className="bg-black p-4 border-b-tenek2 border-orange-600 flex justify-between items-center">
+            <img
+              src={bhxLogo}
+              alt="BHX Logo"
               className="h-10"
             />
             <div className="flex space-x-2">
-              <button 
+              <button
                 onClick={closeFrame}
                 className="bg-orange-600 text-black px-4 py-2 rounded font-bold hover:bg-orange-700 transition-colors"
               >
@@ -156,8 +156,8 @@ function App() {
             </div>
           </div>
           <div className="iframe-container">
-            <iframe 
-              src={activeFrame} 
+            <iframe
+              src={activeFrame}
               title="BHX Portal Frame"
               className="portal-frame"
               key={iframeKey}
@@ -168,20 +168,20 @@ function App() {
         <div className="flex flex-col min-h-screen">
           <header className="bg-black p-4 border-b-2 border-orange-600">
             <div className="flex justify-between items-center">
-              <img 
-                src={bhxLogo} 
-                alt="BHX Logo" 
+              <img
+                src={bhxLogo}
+                alt="BHX Logo"
                 className="h-12"
               />
             </div>
           </header>
 
           <main className="flex-grow flex flex-col items-center justify-center p-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 w-full max-w-3xl px-4 gap-2"> {/* Only changed gap to gap-2 */}
+            <div className="flex flex-row flex-wrap justify-center gap-8 w-full max-w-4xl px-4">
               {links.map((link, index) => (
                 <button
                   key={index}
-                  className="bg-orange-600 text-black aspect-square w-full max-w-[90px] rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl flex items-center justify-center p-2 text-center"
+                  className="bg-orange-600 text-black h-24 w-24 rounded-lg shadow-lg cursor-pointer transition-all hover:scale-105 hover:shadow-xl flex items-center justify-center p-2 text-center"
                   onClick={() => openInFrame(link.url)}
                 >
                   <span className="text-sm font-medium">{link.name}</span>
@@ -195,7 +195,7 @@ function App() {
           </footer>
         </div>
       )}
-    </div> 
+    </div>
   );
 }
 
